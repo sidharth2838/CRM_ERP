@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply m-0 p-0 box-border;
+}
+
+body {
+  @apply font-sans text-gray-600 bg-gray-50 leading-relaxed;
+}
+
+/* Button Components */
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-amber-600 text-white px-11 py-4 border-0 rounded-full font-semibold text-base cursor-pointer no-underline transition-all duration-300 shadow-lg hover:bg-amber-700 hover:-translate-y-1 hover:shadow-2xl;
+  }
+
+  .btn-secondary {
+    @apply inline-block bg-gray-800 text-white px-5 py-2.5 border-0 rounded cursor-pointer font-semibold text-sm no-underline transition-all duration-300 hover:bg-amber-600;
+  }
+
+  .action-btn {
+    @apply w-11 h-11 rounded-full bg-white border-0 cursor-pointer flex items-center justify-center text-gray-800 shadow-md transition-all duration-300 hover:bg-amber-600 hover:text-white hover:scale-110;
+  }
+
+  .card {
+    @apply bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply -translate-y-3 shadow-2xl;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-gray-900 mb-4 tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-base text-gray-600 leading-relaxed;
+  }
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus {
+  @apply outline-2 outline-offset-2 outline-accent;
+}

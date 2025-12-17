@@ -1,0 +1,10 @@
+export { default as Header } from './Header';
+export { default as HeroSection } from './HeroSection';
+export { default as FeaturesSection } from './FeaturesSection';
+export { default as ProductsSection } from './ProductsSection';
+export { default as WhyUsSection } from './WhyUsSection';
+export { default as DetailsSection } from './DetailsSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as StoriesSection } from './StoriesSection';
+export { default as InstagramSection } from './InstagramSection';
+export { default as Footer } from './Footer';
