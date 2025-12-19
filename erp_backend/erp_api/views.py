@@ -528,7 +528,7 @@ class CustomersAPIView(APIView):
 
 class CustomerDetailAPIView(APIView):
     """Retrieve, update, or delete a customer"""
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request, customer_id):
         """Get customer details"""
@@ -894,7 +894,7 @@ class CompaniesAPIView(APIView):
 
 class CompanyDetailAPIView(APIView):
     """Retrieve, update, or delete a company"""
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request, company_id):
         """Get company details"""
@@ -2179,7 +2179,7 @@ class LeadDetailAPIView(APIView):
 # =============== LEADS EXPORT/IMPORT ===============
 class LeadsExportAPIView(APIView):
     """Export leads to Excel"""
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         """Export all leads to Excel file"""
@@ -2250,7 +2250,7 @@ class LeadsExportAPIView(APIView):
 
 class LeadsImportAPIView(APIView):
     """Import leads from Excel"""
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def post(self, request):
         """Import leads from uploaded Excel file"""
@@ -5041,7 +5041,7 @@ class SiteInfoView(generics.RetrieveUpdateAPIView):
 
 class UserProfileAPIView(APIView):
     """Get current user profile"""
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     
     def get(self, request):
         try:

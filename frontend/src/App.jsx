@@ -37,41 +37,31 @@ import OrderPage from './pages/OrderPage';
 import SettingsPage from './pages/SettingsPage';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(!!localStorage.getItem('crm_jwt'));
-
-  React.useEffect(() => {
-    const handleStorage = () => {
-      setIsAuthenticated(!!localStorage.getItem('crm_jwt'));
-    };
-    window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
-  }, []);
-
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/" element={isAuthenticated ? <HomePage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
+        <Route path="/login" element={<LoginPage onLogin={() => {}} />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/shop" element={<ProductPage />} />
         <Route path="/website" element={<LandingPage />} />
-        <Route path="/customers" element={isAuthenticated ? <CustomersPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/peoples" element={isAuthenticated ? <PeoplesPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/companies" element={isAuthenticated ? <CompaniesPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/invoices" element={isAuthenticated ? <InvoicesPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/payments" element={isAuthenticated ? <PaymentsPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/quotes" element={isAuthenticated ? <QuotesPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/leads" element={isAuthenticated ? <LeadsPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/offers-for-leads" element={isAuthenticated ? <OffersForLeadsPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/expenses" element={isAuthenticated ? <ExpensesPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/expense-category" element={isAuthenticated ? <ExpenseCategoryPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/products" element={isAuthenticated ? <ProductsPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/products-category" element={isAuthenticated ? <ProductsCategoryPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/report" element={isAuthenticated ? <ReportPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/orders" element={isAuthenticated ? <OrderPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/settings" element={isAuthenticated ? <SettingsPage /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/user-management" element={isAuthenticated ? <RequireManagerOrAdmin><UserManagementPage /></RequireManagerOrAdmin> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
-        <Route path="/admin/website-controller" element={isAuthenticated ? <WebsiteController /> : <LoginPage onLogin={() => setIsAuthenticated(true)} />} />
+        <Route path="/customers" element={<CustomersPage />} />
+        <Route path="/peoples" element={<PeoplesPage />} />
+        <Route path="/companies" element={<CompaniesPage />} />
+        <Route path="/invoices" element={<InvoicesPage />} />
+        <Route path="/payments" element={<PaymentsPage />} />
+        <Route path="/quotes" element={<QuotesPage />} />
+        <Route path="/leads" element={<LeadsPage />} />
+        <Route path="/offers-for-leads" element={<OffersForLeadsPage />} />
+        <Route path="/expenses" element={<ExpensesPage />} />
+        <Route path="/expense-category" element={<ExpenseCategoryPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products-category" element={<ProductsCategoryPage />} />
+        <Route path="/report" element={<ReportPage />} />
+        <Route path="/orders" element={<OrderPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/user-management" element={<RequireManagerOrAdmin><UserManagementPage /></RequireManagerOrAdmin>} />
+        <Route path="/admin/website-controller" element={<WebsiteController />} />
         <Route path="/api-debug" element={<APIDebugPage />} />
         <Route path="/website" element={<WebsitePage />} />
       </Routes>

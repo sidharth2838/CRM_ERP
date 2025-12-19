@@ -13,13 +13,10 @@ const UserManagementPage = () => {
     setMessage('');
     setError('');
     try {
-      const token = localStorage.getItem('crm_jwt');
       const res = await axios.post('/api/create-user/', {
         username,
         password,
         role,
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
       });
       setMessage('User created successfully!');
       setUsername('');
